@@ -1,46 +1,55 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import Papa from "papaparse";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
+// 🔗 Same Google Sheet CSV URL
+const SHEET_URL =
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vSZCb9N7-d8ZpJx3GMyDsBhIEaCA7YmAzkoVYtvVzLYoPYsHM5dQ-C7ucnBQxpgJjp1d35dZ_TXetu2/pub?output=csv";
+
 const Featured = () => {
-  const featuredProducts = [
-    {
-      id: 1,
-      name: "Premium Product 1",
-      price: "79.99",
-      offerPrice: "49.99",
-      image:
-        "https://images.unsplash.com/photo-1712903276003-b814091e7770?auto=format&fit=crop&w=400&q=80",
-      description: "High-quality product designed for your needs",
-      category: "Featured",
-    },
-    {
-      id: 2,
-      name: "Premium Product 2",
-      price: "99.99",
-      offerPrice: "59.99",
-      image:
-        "https://images.unsplash.com/photo-1651602855717-9f79c72893cc?auto=format&fit=crop&w=400&q=80",
-      description: "Elegant design meets functionality",
-      category: "Featured",
-    },
-    {
-      id: 3,
-      name: "Premium Product 3",
-      price: "129.99",
-      offerPrice: "79.99",
-      image:
-        "https://images.unsplash.com/photo-1712903276003-b814091e7770?auto=format&fit=crop&w=400&q=80",
-      description: "Premium quality for lasting satisfaction",
-      category: "Featured",
-    },
-  ];
+  const [featuredProducts, setFeaturedProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // 📥 Fetch only FEATURED products
+  useEffect(() => {
+    fetch(SHEET_URL)
+      .then((res) => res.text())
+      .then((csvText) => {
+        Papa.parse(csvText, {
+          header: true,
+          skipEmptyLines: true,
+          complete: (result) => {
+            const data = result.data
+              .filter((row) => row.category === "Featured")
+              .map((row) => ({
+                id: Number(row.id),
+                name: row.name,
+                price: Number(row.price),
+                offerPrice: Number(row.offerPrice),
+                image: row.image,
+                description: row.description,
+                category: row.category,
+              }));
+
+            setFeaturedProducts(data);
+            setLoading(false);
+          },
+        });
+      })
+      .catch((err) => {
+        console.error("Failed to load featured products", err);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading || featuredProducts.length === 0) return null;
 
   return (
     <section className="py-16">
@@ -89,9 +98,7 @@ const Featured = () => {
         >
           {featuredProducts.map((product) => {
             const discount = Math.round(
-              ((Number(product.price) - Number(product.offerPrice)) /
-                Number(product.price)) *
-                100
+              ((product.price - product.offerPrice) / product.price) * 100
             );
 
             return (

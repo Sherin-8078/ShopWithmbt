@@ -1,83 +1,59 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Search } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
+import Papa from "papaparse";
 import Footer from "../components/Footer";
 
-const allProducts = [
-  {
-    id: 1,
-    name: "Classic Collection Item",
-    price: 79.99,
-    offerPrice: 49.99,
-    category: "Classic",
-    image:
-      "https://images.unsplash.com/photo-1712903276003-b814091e7770?auto=format&fit=crop&w=600&q=80",
-    description: "Timeless design that never goes out of style",
-  },
-  {
-    id: 2,
-    name: "Modern Essential",
-    price: 99.99,
-    offerPrice: 79.99,
-    category: "Modern",
-    image:
-      "https://images.unsplash.com/photo-1651602855717-9f79c72893cc?auto=format&fit=crop&w=600&q=80",
-    description: "Contemporary design for modern living",
-  },
-  {
-    id: 3,
-    name: "Premium Selection",
-    price: 129.99,
-    offerPrice: 99.99,
-    category: "Premium",
-    image:
-      "https://images.unsplash.com/photo-1712903276003-b814091e7770?auto=format&fit=crop&w=600&q=80",
-    description: "Luxury quality for discerning customers",
-  },
-  {
-    id: 4,
-    name: "Elegant Design",
-    price: 89.99,
-    offerPrice: 69.99,
-    category: "Modern",
-    image:
-      "https://images.unsplash.com/photo-1651602855717-9f79c72893cc?auto=format&fit=crop&w=600&q=80",
-    description: "Sophisticated style meets functionality",
-  },
-  {
-    id: 5,
-    name: "Traditional Craft",
-    price: 109.99,
-    offerPrice: 89.99,
-    category: "Classic",
-    image:
-      "https://images.unsplash.com/photo-1712903276003-b814091e7770?auto=format&fit=crop&w=600&q=80",
-    description: "Handcrafted with attention to detail",
-  },
-  {
-    id: 6,
-    name: "Signature Series",
-    price: 159.99,
-    offerPrice: 129.99,
-    category: "Premium",
-    image:
-      "https://images.unsplash.com/photo-1651602855717-9f79c72893cc?auto=format&fit=crop&w=600&q=80",
-    description: "Our most exclusive offering",
-  },
-];
+// 🔗 Google Sheet CSV URL
+const SHEET_URL =
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vSZCb9N7-d8ZpJx3GMyDsBhIEaCA7YmAzkoVYtvVzLYoPYsHM5dQ-C7ucnBQxpgJjp1d35dZ_TXetu2/pub?output=csv";
 
-const categories = ["All", "Classic", "Modern", "Premium"];
+const categories = ["All", "Classic", "Modern", "Premium", "Featured"];
 
 export default function Products() {
+  const [products, setProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
+  const [loading, setLoading] = useState(true);
 
-  const filteredProducts = allProducts.filter((product) => {
+  // 📥 Fetch products from Google Sheet
+  useEffect(() => {
+    fetch(SHEET_URL)
+      .then((res) => res.text())
+      .then((csvText) => {
+        Papa.parse(csvText, {
+          header: true,
+          skipEmptyLines: true,
+          complete: (result) => {
+            const data = result.data.map((row) => ({
+              id: Number(row.id),
+              name: row.name,
+              price: Number(row.price),
+              offerPrice: Number(row.offerPrice),
+              image: row.image,
+              description: row.description,
+              category: row.category,
+            }));
+            setProducts(data);
+            setLoading(false);
+          },
+        });
+      })
+      .catch((err) => {
+        console.error("Error loading products:", err);
+        setLoading(false);
+      });
+  }, []);
+
+  // 🔍 Filter logic
+  const filteredProducts = products.filter((product) => {
     const matchesCategory =
       selectedCategory === "All" || product.category === selectedCategory;
+
     const matchesSearch = product.name
       .toLowerCase()
       .includes(searchQuery.toLowerCase());
+
     return matchesCategory && matchesSearch;
   });
 
@@ -96,7 +72,7 @@ export default function Products() {
       </section>
 
       {/* Filters */}
-      <section className="py-8 border-b border-gray-100  top-20 bg-white z-40">
+      <section className="py-8 border-b border-gray-100 bg-white z-40">
         <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row gap-6 justify-between">
           {/* Search */}
           <div className="relative w-full lg:w-80">
@@ -135,7 +111,11 @@ export default function Products() {
       {/* Products */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4">
-          {filteredProducts.length === 0 ? (
+          {loading ? (
+            <p className="text-center py-20 text-gray-500">
+              Loading products...
+            </p>
+          ) : filteredProducts.length === 0 ? (
             <p className="text-center text-gray-600 py-20">
               No products found.
             </p>
@@ -201,6 +181,7 @@ export default function Products() {
           )}
         </div>
       </section>
+
       <Footer />
     </div>
   );

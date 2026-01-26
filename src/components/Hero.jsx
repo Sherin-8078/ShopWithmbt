@@ -11,7 +11,7 @@ const Hero = () => {
             <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-10 sm:mb-12 leading-relaxed max-w-3xl mx-auto">
               Discover our curated collection of high-quality products designed to elevate your lifestyle
             </p>
-            <a href={`https://wa.me/8078828121?text=${encodeURIComponent(
+            <a href={`https://wa.me/9544692248?text=${encodeURIComponent(
                           `Hi! I'm interested in Purchasing your product`
                         )}`}
                         target="_blank"

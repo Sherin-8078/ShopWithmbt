@@ -7,7 +7,7 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone",
-    details: "+1 (555) 123-4567",
+    details: "9544692248",
     description: "Mon-Sat, 9 AM - 6 PM",
   },
   {
@@ -55,7 +55,7 @@ const Contact = () => {
               or to place an order.
             </p>
 
-            <a href={`https://wa.me/8078828121?text=${encodeURIComponent(
+            <a href={`https://wa.me/9544692248?text=${encodeURIComponent(
                                       `Hi! I'm interested in Purchasing your product`
                                     )}`}
                                     target="_blank"

@@ -156,15 +156,15 @@ export default function Products() {
                     {/* Price + WhatsApp */}
                     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                       <p className="text-2xl font-semibold">
-                        ${product.offerPrice}
+                        ₹{product.offerPrice}
                         <span className="text-gray-500/60 text-sm line-through ml-2">
-                          ${product.price}
+                          ₹{product.price}
                         </span>
                       </p>
 
                       <a
-                        href={`https://wa.me/15551234567?text=${encodeURIComponent(
-                          `Hi! I'm interested in ${product.name} for $${product.offerPrice}`
+                        href={`https://wa.me/9544692248?text=${encodeURIComponent(
+                          `Hi! I'm interested in ${product.name} for ₹${product.offerPrice}`
                         )}`}
                         target="_blank"
                         rel="noopener noreferrer"

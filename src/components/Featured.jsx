@@ -135,15 +135,15 @@ const Featured = () => {
 
                     <div className="mt-auto flex flex-col sm:flex-row justify-between gap-4">
                       <p className="text-2xl font-semibold">
-                        ${product.offerPrice}
+                        ₹{product.offerPrice}
                         <span className="text-gray-500/60 text-sm line-through ml-2">
-                          ${product.price}
+                          ₹{product.price}
                         </span>
                       </p>
 
                       <a
                         href={`https://wa.me/8078828121?text=${encodeURIComponent(
-                          `Hi! I'm interested in ${product.name} for $${product.offerPrice}`
+                          `Hi! I'm interested in ${product.name} for ₹${product.offerPrice}`
                         )}`}
                         target="_blank"
                         rel="noopener noreferrer"

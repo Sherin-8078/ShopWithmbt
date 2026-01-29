@@ -1,5 +1,6 @@
 import React from "react";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { FaInstagram } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
 import Footer from "../components/Footer";
 import { Helmet } from "react-helmet-async";
@@ -10,37 +11,52 @@ const contactInfo = [
     title: "Phone",
     details: "9544692248",
     description: "Mon-Sat, 9 AM - 6 PM",
+    link: "tel:+919544692248",
   },
   {
     icon: Mail,
     title: "Email",
-    details: "hello@yourbrand.com",
+    details: "shopwithmbt@gmail.com",
     description: "We'll respond within 24 hours",
+    link: "mailto:shopwithmbt@gmail.com",
   },
   {
     icon: MapPin,
     title: "Location",
     details: "Near Akshaya, Pannivizha, Adoor",
-    description: "Serving the local area",
+    description: "View on Google Maps",
+    link: "https://maps.app.goo.gl/vu4vpANkeW77Nu2M8",
   },
   {
     icon: Clock,
     title: "Business Hours",
     details: "Mon-Sat: 9 AM - 6 PM",
     description: "Sunday: Closed",
+    link: null, 
   },
 ];
+
 
 const Contact = () => {
   return (
    <>
    <Helmet>
-  <title>Contact | Shop With MBT – WhatsApp Electronics Orders</title>
+  <title>Contact | Shop With MBT – Electronics Store in Adoor</title>
+
   <meta
     name="description"
-    content="Contact Shop With MBT via WhatsApp for electronics orders, pricing, and delivery details across India."
+    content="Contact Shop With MBT in Adoor, Kerala for electronics orders, pricing, and delivery across India via WhatsApp."
   />
+
+  {/* Open Graph (Social Preview) */}
+  <meta property="og:title" content="Contact Shop With MBT" />
+  <meta
+    property="og:description"
+    content="Contact Shop With MBT in Adoor, Kerala for electronics orders via WhatsApp."
+  />
+  <meta property="og:type" content="website" />
 </Helmet>
+
 
     <div className="min-h-screen bg-white pt-10">
       {/* Header */}
@@ -101,9 +117,21 @@ const Contact = () => {
                   <h3 className="text-xl font-medium mb-3">
                     {item.title}
                   </h3>
-                  <p className="font-medium text-gray-900 mb-2 text-lg">
-                    {item.details}
-                  </p>
+                  {item.link ? (
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-medium text-gray-900 mb-2 text-lg hover:underline"
+                    >
+                      {item.details}
+                    </a>
+                  ) : (
+                    <p className="font-medium text-gray-900 mb-2 text-lg">
+                      {item.details}
+                    </p>
+                  )}
+
                   <p className="text-gray-600">
                     {item.description}
                   </p>
@@ -148,6 +176,28 @@ const Contact = () => {
           </div>
         </div>
       </section>
+      {/* Instagram Section */}
+        <section className="py-20 sm:py-28 bg-white border-t border-gray-100">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-6">
+              Follow Us on Instagram
+            </h2>
+
+            <p className="text-lg sm:text-xl text-gray-600 mb-10">
+              See latest products, offers, and updates from Shop With MBT
+            </p>
+
+            <a
+              href="https://www.instagram.com/shop_with_mbt"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-4 bg-black text-white px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 transition"
+            >
+              <span className='text-3xl'><FaInstagram /> </span>Visit Instagram
+            </a>
+          </div>
+        </section>
+
       <Footer />
     </div>
    </>

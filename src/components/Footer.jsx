@@ -1,6 +1,7 @@
 import React from "react";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { NavLink } from "react-router-dom";
+import { FaInstagram } from "react-icons/fa6";
 
 const Footer = () => {
   const linkClass =
@@ -56,18 +57,30 @@ const Footer = () => {
               Contact
             </h3>
             <ul className="space-y-4">
-              <li className="flex items-start gap-3 text-gray-600">
+              <a href="tel:+919544692248" target="_blank" rel="noopener noreferrer">
+                <li className="flex items-start gap-3 text-gray-600">
                 <Phone size={20} className="flex-shrink-0 mt-0.5" />
-                <span>+1 (555) 123-4567</span>
+                <span>+91 9544692248</span>
               </li>
-              <li className="flex items-start gap-3 text-gray-600">
+              </a>
+              <a href="mailto:" target="_blank" rel="noopener noreferrer" >
+                <li className="flex items-start gap-3 text-gray-600">
                 <Mail size={20} className="flex-shrink-0 mt-0.5" />
                 <span>hello@yourbrand.com</span>
               </li>
-              <li className="flex items-start gap-3 text-gray-600">
+              </a>
+              <a href="https://maps.app.goo.gl/vu4vpANkeW77Nu2M8" target="_blank" rel="noopener noreferrer">
+                <li className="flex items-start gap-3 text-gray-600">
                 <MapPin size={20} className="flex-shrink-0 mt-0.5" />
                 <span>Near Akshaya, Pannivizha, Adoor</span>
               </li>
+              </a>
+              <a href="https://www.instagram.com/shop_with_mbt" target="_blank" rel="noopener noreferrer">
+                <li className="flex items-start gap-3 text-gray-600">
+                <FaInstagram size={20} className="flex-shrink-0 mt-0.5" />
+                <span>Follow Us on Instagram</span>
+              </li>
+              </a>
             </ul>
           </div>
 

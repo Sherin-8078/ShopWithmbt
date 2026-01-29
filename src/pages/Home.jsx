@@ -25,7 +25,7 @@ const Home = () => {
             "@context": "https://schema.org",
             "@type": "ElectronicsStore",
             "name": "Shop With MBT",
-            "url": "https://shop-withmbt.vercel.app",
+            "url": "https://shopwithmbt.com",
             "areaServed": "IN",
             "address": {
               "@type": "PostalAddress",

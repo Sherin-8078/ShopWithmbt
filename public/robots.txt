@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://shop-withmbt.vercel.app/sitemap.xml
+Sitemap: https://shopwithmbt.com/sitemap.xml

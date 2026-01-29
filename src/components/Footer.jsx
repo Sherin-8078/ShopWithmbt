@@ -66,7 +66,7 @@ const Footer = () => {
               <a href="mailto:shopwithmbt.adoor@gmail.com" target="_blank" rel="noopener noreferrer" >
                 <li className="flex items-start gap-3 text-gray-600">
                 <Mail size={20} className="flex-shrink-0 mt-0.5" />
-                <span>hello@yourbrand.com</span>
+                <span>shopwithmbt.adoor@gmail.com</span>
               </li>
               </a>
               <a href="https://maps.app.goo.gl/vu4vpANkeW77Nu2M8" target="_blank" rel="noopener noreferrer">

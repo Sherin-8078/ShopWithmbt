@@ -18,7 +18,7 @@ const contactInfo = [
     title: "Email",
     details: "shopwithmbt@gmail.com",
     description: "We'll respond within 24 hours",
-    link: "mailto:shopwithmbt@gmail.com",
+    link: "mailto:shopwithmbt.adoor@gmail.com",
   },
   {
     icon: MapPin,

@@ -11,7 +11,7 @@ import "swiper/css/navigation";
 
 // 🔗 Same Google Sheet CSV URL
 const SHEET_URL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vSZCb9N7-d8ZpJx3GMyDsBhIEaCA7YmAzkoVYtvVzLYoPYsHM5dQ-C7ucnBQxpgJjp1d35dZ_TXetu2/pub?output=csv";
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vRqNqlLUgQLmoNFWfvhGogE_0vDDhs_u7AU19Lz6Lw1yo7nwOvG_tSD3-FEzQ4nB1JEuKYo6HqaPTVr/pub?output=csv";
 
 const Featured = () => {
   const [featuredProducts, setFeaturedProducts] = useState([]);

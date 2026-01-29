@@ -63,7 +63,7 @@ const Footer = () => {
                 <span>+91 9544692248</span>
               </li>
               </a>
-              <a href="mailto:" target="_blank" rel="noopener noreferrer" >
+              <a href="mailto:shopwithmbt.adoor@gmail.com" target="_blank" rel="noopener noreferrer" >
                 <li className="flex items-start gap-3 text-gray-600">
                 <Mail size={20} className="flex-shrink-0 mt-0.5" />
                 <span>hello@yourbrand.com</span>

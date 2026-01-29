@@ -20,7 +20,7 @@ const values = [
     icon: Target,
     title: "Expert Knowledge",
     description:
-      "With over 5 years in the industry, we know our products inside and out.",
+      "Built on extensive industry experience, we know our products inside and out.",
   },
   {
     icon: Users,
@@ -53,36 +53,22 @@ const About = () => {
       </section>
 
       {/* Story Section */}
-      <section className="py-20 sm:py-28 lg:py-32">
+      <section className="py-20 sm:py-10 lg:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-8">
-            Our Story
-          </h2>
 
           <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
             <p>
-              For over 5 years, we've been dedicated to bringing quality
-              products to our community. What started as a passion project
-              has grown into a trusted business that serves customers with
-              care and expertise.
+              We sell variety and exclusive electronic products with dedicated services.Cash on delivery and Prepaid delivery option is available for ordering the items.
             </p>
 
             <p>
-              Our journey began with a simple belief: that everyone deserves
-              access to premium products at fair prices. This principle
-              continues to guide everything we do today.
+             Customers can directly message to our whatsapp number and order to their address conveniently.We have dedicated staffs for taking orders and providing services.
             </p>
 
             <p>
-              We carefully curate each product in our collection, ensuring
-              it meets our high standards for quality, design, and value.
+             Shop with MBT’ has almost 6 instagram accounts selling electronic gadgets throughout Kerala.Customers can also pick items from our store near Adoor,Pathanamthitta.
             </p>
 
-            <p>
-              As a local business, we take pride in being part of this
-              community. We're here not just to sell, but to build lasting
-              relationships based on trust and service.
-            </p>
           </div>
         </div>
       </section>

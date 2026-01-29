@@ -1,6 +1,7 @@
 import React from "react";
 import { Award, Heart, Target, Users } from "lucide-react";
 import Footer from "../components/Footer";
+import { Helmet } from "react-helmet-async";
 
 const values = [
   {
@@ -31,6 +32,15 @@ const values = [
 
 const About = () => {
   return (
+   <>
+   <Helmet>
+  <title>About Us | Shop With MBT – Electronics Store in Adoor</title>
+  <meta
+    name="description"
+    content="Shop With MBT is a local electronics store in Adoor, Kerala offering genuine products, best prices, and fast delivery."
+  />
+</Helmet>
+
     <div className="min-h-screen bg-white pt-10">
       {/* Header */}
       <section className="bg-gray-50 py-16 sm:py-24">
@@ -130,6 +140,7 @@ const About = () => {
       </section>
       <Footer />
     </div>
+   </>
   );
 };
 

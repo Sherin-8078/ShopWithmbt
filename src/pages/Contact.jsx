@@ -2,6 +2,7 @@ import React from "react";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import Footer from "../components/Footer";
+import { Helmet } from "react-helmet-async";
 
 const contactInfo = [
   {
@@ -32,6 +33,15 @@ const contactInfo = [
 
 const Contact = () => {
   return (
+   <>
+   <Helmet>
+  <title>Contact | Shop With MBT – WhatsApp Electronics Orders</title>
+  <meta
+    name="description"
+    content="Contact Shop With MBT via WhatsApp for electronics orders, pricing, and delivery details across India."
+  />
+</Helmet>
+
     <div className="min-h-screen bg-white pt-10">
       {/* Header */}
       <section className="bg-gray-50 py-16 sm:py-24">
@@ -140,6 +150,7 @@ const Contact = () => {
       </section>
       <Footer />
     </div>
+   </>
   );
 };
 

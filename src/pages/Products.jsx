@@ -3,6 +3,8 @@ import { Search } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import Papa from "papaparse";
 import Footer from "../components/Footer";
+import { Helmet } from "react-helmet-async";
+
 
 // 🔗 Google Sheet CSV URL
 const SHEET_URL =
@@ -58,7 +60,16 @@ export default function Products() {
   });
 
   return (
+   <>
+    <Helmet>
+  <title>Products | Shop With MBT – CCTV, AirPods & Electronics</title>
+  <meta
+    name="description"
+    content="Browse CCTV cameras, AirPods, and electronics at best prices. WhatsApp ordering with delivery across India."
+  />
+</Helmet>
     <div className="min-h-screen bg-white pt-10">
+      
       {/* Header */}
       <section className="bg-gray-50 py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 text-center">
@@ -184,5 +195,6 @@ export default function Products() {
 
       <Footer />
     </div>
+   </>
   );
 }

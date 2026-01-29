@@ -142,7 +142,7 @@ const Featured = () => {
                       </p>
 
                       <a
-                        href={`https://wa.me/8078828121?text=${encodeURIComponent(
+                        href={`https://wa.me/9544692248?text=${encodeURIComponent(
                           `Hi! I'm interested in ${product.name} for ₹${product.offerPrice}`
                         )}`}
                         target="_blank"

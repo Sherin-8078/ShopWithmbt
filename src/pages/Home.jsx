@@ -9,38 +9,26 @@ import ReviewsSection from '../components/ReviewsSection'
 const Home = () => {
   return (
     <>
-    <Helmet>
-        <title>Shop With MBT | Best Electronics Store in Adoor, Kerala</title>
-        <meta
-          name="description"
-          content="Shop With MBT is a trusted electronics store in Adoor, Pathanamthitta offering CCTV, AirPods and accessories at best prices with delivery across India. Order via WhatsApp."
-        />
-        <meta
-          name="keywords"
-          content="electronics store adoor, cctv shop kerala, buy airpods india, shop with mbt"
-        />
-        {/* Local Business Schema */}
-        <script type="application/ld+json">
-          {`
-          {
-            "@context": "https://schema.org",
-            "@type": "ElectronicsStore",
-            "name": "Shop With MBT",
-            "url": "https://shopwithmbt.com",
-            "areaServed": "IN",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Adoor",
-              "addressRegion": "Kerala",
-              "addressCountry": "IN"
-            },
-            "sameAs": [
-              "https://wa.me/9544692248"
-            ]
-          }
-          `}
-        </script>
-      </Helmet>
+   <Helmet>
+  <title>Shop With MBT | Best Electronics Store in Adoor, Kerala</title>
+
+  <link rel="canonical" href="https://shopwithmbt.com/" />
+
+  <meta
+    name="description"
+    content="Shop With MBT is a trusted electronics store in Adoor, Pathanamthitta offering CCTV, AirPods and accessories at best prices with delivery across India. Order via WhatsApp."
+  />
+
+  <meta
+    name="keywords"
+    content="electronics store adoor, cctv shop kerala, buy airpods india, shop with mbt"
+  />
+
+  <script type="application/ld+json">
+    {`{ ... }`}
+  </script>
+</Helmet>
+
     <div className="overflow-x-hidden">
       <Hero />
       <Featured />

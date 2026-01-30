@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 
 export default function ReviewModal({ review, onClose }) {
-  // Auto close after 10 seconds
   useEffect(() => {
     const timer = setTimeout(onClose, 10000);
     return () => clearTimeout(timer);
@@ -10,11 +9,13 @@ export default function ReviewModal({ review, onClose }) {
   return (
     <div
       className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center"
-      onClick={onClose}
+      onMouseDown={onClose}
+      onTouchStart={onClose}
     >
       <div
-        className=" rounded-2xl p-4 w-[90%] max-w-lg max-h-[90vh] md:w-auto md:h-auto  overflow-auto"
-        onClick={(e) => e.stopPropagation()}
+        className="rounded-2xl p-4 w-[90%] max-w-lg max-h-[90vh] overflow-auto"
+        onMouseDown={(e) => e.stopPropagation()}
+        onTouchStart={(e) => e.stopPropagation()}
       >
         <img
           src={review.imageUrl}

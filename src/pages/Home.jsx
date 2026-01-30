@@ -4,6 +4,7 @@ import Featured from '../components/Featured'
 import WhyChoose from '../components/WhyChoose'
 import Footer from '../components/Footer'
 import { Helmet } from "react-helmet-async";
+import ReviewsSection from '../components/ReviewsSection'
 
 const Home = () => {
   return (
@@ -44,6 +45,7 @@ const Home = () => {
       <Hero />
       <Featured />
       <WhyChoose />
+      <ReviewsSection />
       <Footer />
     </div>
     </>
